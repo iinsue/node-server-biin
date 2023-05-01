@@ -4,7 +4,7 @@ import { textRegist } from "../controllers/boardController";
 
 const api = express.Router();
 
-api.post("/api/signip", signup);
-api.post("/api/textRegist", textRegist);
+api.post("/signip", signup);
+api.post("/textRegist", textRegist);
 
 export default app;
