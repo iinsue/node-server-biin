@@ -8,3 +8,7 @@ export const signup = async (req, res) => {
   });
   return res.send("Sign up");
 };
+export const userView = async (req, res) => {
+  const users = await User.find().exec();
+  return res.send(users);
+};
