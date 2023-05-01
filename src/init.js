@@ -1,8 +1,8 @@
 import "regenerator-runtime";
-import "dotenv/config";
-import "./db";
 import "./models/User";
 import "./models/Board";
+import "dotenv/config";
+import "./db";
 import app from "./server";
 
 const PORT = 4000;
