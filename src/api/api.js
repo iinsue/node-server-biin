@@ -7,4 +7,4 @@ const api = express.Router();
 api.post("/signip", signup);
 api.post("/textRegist", textRegist);
 
-export default app;
+export default api;
