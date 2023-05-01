@@ -1,11 +1,10 @@
 import express from "express";
-import "dotenv/config";
-import "./db";
+import api from "./api/api";
 
-const PORT = 4000;
 const app = express();
-const handleListen = () => {
-  console.log(`✅ Server Run Port:${PORT} 🔥🔥`);
-};
 
-app.listen(PORT, handleListen);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use("/api", api);
+
+export default app;
