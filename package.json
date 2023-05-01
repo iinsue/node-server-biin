@@ -1,0 +1,20 @@
+{
+  "name": "server-biin",
+  "version": "1.0.0",
+  "description": "server-biin",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/server.js"
+  },
+  "author": "insu<hinsu93@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.5",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.21.5",
+    "nodemon": "^2.0.22"
+  }
+}
