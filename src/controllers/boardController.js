@@ -47,12 +47,12 @@ export const remove = async (req, res) => {
   );
   findUser.texts = texts;
   findUser.save();
-  await Board.findByIdAndDelete(req.body.id);
+  await Board.findByIdAndDelete(req.body._id);
   return res.status(200).end();
 };
 
 export const edit = async (req, res) => {
-  await Board.findByIdAndUpdate(req.body_id, {
+  await Board.findByIdAndUpdate(req.body._id, {
     title: req.body.title,
     contents: req.body.contents,
   });

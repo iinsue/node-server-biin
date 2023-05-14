@@ -25,7 +25,7 @@ export const readTodo = async (req, res) => {
 
 export const deleteTodo = async (req, res) => {
   try {
-    await Todo.findByIdAndDelete(req.body.id);
+    await Todo.findByIdAndDelete(req.body._id);
     return res.status(200).send({ code: 200, message: "Delete Success" });
   } catch (error) {
     return res.status(400).send({ error });
@@ -34,7 +34,7 @@ export const deleteTodo = async (req, res) => {
 
 export const mutateTodo = async (req, res) => {
   try {
-    await Todo.findByIdAndUpdate(req.body.id, {
+    await Todo.findByIdAndUpdate(req.body._id, {
       todo: req.body.todo,
       todoType: req.body.todoType,
     });
