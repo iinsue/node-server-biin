@@ -17,6 +17,7 @@ import {
 import {
   createTodo,
   deleteTodo,
+  mutateTodo,
   readTodo,
 } from "../controllers/todoController";
 import { jwtMiddleware, tokenCheck } from "../middlewares";
@@ -36,6 +37,11 @@ api.route("/remove").all(tokenCheck).post(remove);
 api.route("/user").get(userView);
 api.post("/textRegist", textRegist);
 
-api.route("/todo").get(readTodo).post(createTodo).delete(deleteTodo);
+api
+  .route("/todo")
+  .get(readTodo)
+  .post(createTodo)
+  .delete(deleteTodo)
+  .put(mutateTodo);
 
 export default api;

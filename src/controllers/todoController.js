@@ -31,3 +31,15 @@ export const deleteTodo = async (req, res) => {
     return res.status(400).send({ error });
   }
 };
+
+export const mutateTodo = async (req, res) => {
+  try {
+    await Todo.findByIdAndUpdate(req.body.id, {
+      todo: req.body.todo,
+      todoType: req.body.todoType,
+    });
+    return res.status(200).send({ code: 200, message: "Mutate Success" });
+  } catch (error) {
+    return res.status(400).send(error);
+  }
+};
