@@ -16,7 +16,7 @@ export const createTodo = async (req, res) => {
 
 export const readTodo = async (req, res) => {
   try {
-    const todoList = await Todo.find().exec();
+    const todoList = await Todo.find(req.query).exec();
     return res.status(200).send(todoList);
   } catch (error) {
     return res.status(400).send(error);
