@@ -21,6 +21,14 @@ import {
   readTodo,
 } from "../controllers/todoController";
 import { jwtMiddleware, tokenCheck } from "../middlewares";
+import {
+  examBoardDetail,
+  examBoardEdit,
+  examBoardList,
+  examBoardRemove,
+  examBoardWrite,
+} from "../controllers/examBoardController";
+import { upload, uploadImg } from "../controllers/imageController";
 
 const api = express.Router();
 api.route("/login").post(login);
@@ -34,6 +42,13 @@ api.route("/detail/:id").all(tokenCheck).get(detail);
 api.route("/edit").put(edit);
 api.route("/remove").all(tokenCheck).post(remove);
 
+api
+  .route("/exam")
+  .get(examBoardList)
+  .post(examBoardWrite)
+  .put(examBoardEdit)
+  .delete(examBoardRemove);
+api.route("/exam/:id").get(examBoardDetail);
 api.route("/user").get(userView);
 api.post("/textRegist", textRegist);
 
@@ -43,5 +58,7 @@ api
   .post(createTodo)
   .delete(deleteTodo)
   .put(mutateTodo);
+
+api.route("/awsimg").post(upload.array("image"), uploadImg);
 
 export default api;
